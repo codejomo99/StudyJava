@@ -2,6 +2,7 @@ package Stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamAssist {
     public static void main(String[] args){
@@ -12,7 +13,16 @@ public class StreamAssist {
         cutomers.add(new Customer("Lee",67));
         cutomers.add(new Customer("Choi",19));
 
+        // 스트림 사용 O
+        List<String> customersNmaes = cutomers.stream()
+                .filter(cutomer -> cutomer.getAge() > 30)
+                .sorted()
+                .map(Customer::getName)
+                .collect(Collectors.toList());
 
+
+
+        // 스트림 사용 X
         List<Customer> list = new ArrayList<>();
         for(Customer customer : cutomers){
             if(customer.getAge() > 30){
@@ -24,6 +34,10 @@ public class StreamAssist {
         for(Customer customer : list){
             results.add(customer.getName());
         } // 이름만 추출
+
+        for(String name : results){
+            System.out.println(name);
+        } // age > 30 + 이름만 추출
 
     }
 }
