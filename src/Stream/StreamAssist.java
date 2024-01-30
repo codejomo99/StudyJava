@@ -13,6 +13,17 @@ public class StreamAssist {
         cutomers.add(new Customer("Choi",19));
 
 
+        List<Customer> list = new ArrayList<>();
+        for(Customer customer : cutomers){
+            if(customer.getAge() > 30){
+                list.add(customer);
+            }
+        } // age 30 > 추출
+
+        List<String> results = new ArrayList<>();
+        for(Customer customer : list){
+            results.add(customer.getName());
+        } // 이름만 추출
 
     }
 }
