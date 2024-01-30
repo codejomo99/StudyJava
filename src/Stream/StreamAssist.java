@@ -6,25 +6,27 @@ import java.util.stream.Collectors;
 
 public class StreamAssist {
     public static void main(String[] args){
-        List<Customer> cutomers = new ArrayList<>();
-        cutomers.add(new Customer("Song",45));
-        cutomers.add(new Customer("Kim",33));
-        cutomers.add(new Customer("Park",21));
-        cutomers.add(new Customer("Lee",67));
-        cutomers.add(new Customer("Choi",19));
+        List<Customer> customers = new ArrayList<>();
+        customers.add(new Customer("Song",45));
+        customers.add(new Customer("Kim",33));
+        customers.add(new Customer("Park",21));
+        customers.add(new Customer("Lee",67));
+        customers.add(new Customer("Choi",19));
 
         // 스트림 사용 O
-        List<String> customersNmaes = cutomers.stream()
-                .filter(cutomer -> cutomer.getAge() > 30)
-                .sorted()
+        List<String> customersNames = customers.stream()
+                .filter(customer -> customer.getAge() > 30)
                 .map(Customer::getName)
                 .collect(Collectors.toList());
 
+        for(String reuslt : customersNames){
+            System.out.println(reuslt);
+        }
 
 
         // 스트림 사용 X
         List<Customer> list = new ArrayList<>();
-        for(Customer customer : cutomers){
+        for(Customer customer : customers){
             if(customer.getAge() > 30){
                 list.add(customer);
             }
