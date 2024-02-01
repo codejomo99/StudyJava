@@ -16,7 +16,7 @@ public class StreamAssist {
         // 스트림 사용 O
         List<String> customersNames = customers.stream()
                 .filter(customer -> customer.getAge() > 30)
-                .map(Customer::getName)
+                .map(customer -> customer.getName()) // Customer::getName 도 가능하다.
                 .sorted()
                 .collect(Collectors.toList());
 
