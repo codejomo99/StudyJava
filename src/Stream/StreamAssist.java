@@ -17,6 +17,7 @@ public class StreamAssist {
         List<String> customersNames = customers.stream()
                 .filter(customer -> customer.getAge() > 30)
                 .map(Customer::getName)
+                .sorted()
                 .collect(Collectors.toList());
 
         for(String reuslt : customersNames){

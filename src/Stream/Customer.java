@@ -1,6 +1,6 @@
 package Stream;
 
-public class Customer {
+public class Customer implements Comparable<Customer>{
     private String name;
     private int age;
 
@@ -13,4 +13,15 @@ public class Customer {
     public void setName(String name){ this.name = name; }
     public int getAge(){ return this.age; }
     public void setAge(int age){ this.age = age;}
+
+    @Override
+    public int compareTo(Customer customer) {
+        if(this.age > customer.getAge()){
+            return -1;
+        }else if(this.age == customer.getAge()){
+            return 0;
+        }else{
+            return -1;
+        }
+    }
 }
